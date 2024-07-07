@@ -77,8 +77,8 @@ def SimulasiProgram(df_bilangan_acak1,df_bilangan_acak2):
         7,
         8
     ]
-    df_bilangan_acak_curah['Curah Hujan (mm)'] = np.select(conditions, choices, default=0).astype(int)
-    df_bilangan_acak_lama ['Lama Hujan (Bln)'] = np.select(condition1, choices1, default=0).astype(int)
+    df_bilangan_acak_curah['Curah Hujan (mm)'] = np.select(conditions, choices).astype(int)
+    df_bilangan_acak_lama ['Lama Hujan (Bln)'] = np.select(condition1, choices1).astype(int)
     
     
     # Gabungkan kedua DataFrame berdasarkan index
@@ -97,7 +97,7 @@ def SimulasiProgram(df_bilangan_acak1,df_bilangan_acak2):
         'Hujan Lebat',
         'Hujan Sangat Lebat'
     ]
-    df_bilangan_acak_curah['Status Cuaca'] = np.select(condition2,choices2,default=0)
+    df_bilangan_acak_curah['Status Cuaca'] = np.select(condition2,choices2)
     df_fix = df_bilangan_acak_curah[['Tahun', 'Curah Hujan', 'Lama Hujan (Bulanan)', 'Curah Hujan (mm)','Lama Hujan (Bln)','Intensitas Hujan','Status Cuaca']]
     
     return df_fix
